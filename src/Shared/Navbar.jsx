@@ -12,7 +12,7 @@ const Navbar = () => {
         <NavLink to="/addproduct">Add Product</NavLink>
       </li>
       <li>
-        <NavLink to="/about">My Cart</NavLink>
+        <NavLink to="/mycart">My Cart</NavLink>
       </li>
     </ul>
   </>
@@ -46,8 +46,8 @@ const Navbar = () => {
                 {navLinks}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">
-            <img className="w-16 h-16 rounded-full" src="https://i.ibb.co/HrntVPr/logo.png" alt="" />
+          <a className=" normal-case text-xl">
+            <img className="w-20 h-20 rounded-full" src="https://i.ibb.co/HrntVPr/logo.png" alt="" />
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -56,7 +56,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <img className="w-12 h-12 rounded-full pr-[6px]" src="https://i.ibb.co/x3RPF21/icon.png" alt="" />
+          <img className="w-10 h-10 rounded-full pr-[6px]" src="https://i.ibb.co/x3RPF21/icon.png" alt="" />
           <a className="btn">Login</a>
         </div>
       </div>
