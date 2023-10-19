@@ -46,7 +46,9 @@ const Navbar = () => {
                 {navLinks}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">Foodie</a>
+          <a className="btn btn-ghost normal-case text-xl">
+            <img className="w-16 h-16 rounded-full" src="https://i.ibb.co/HrntVPr/logo.png" alt="" />
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
@@ -54,6 +56,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
+          <img className="w-12 h-12 rounded-full pr-[6px]" src="https://i.ibb.co/x3RPF21/icon.png" alt="" />
           <a className="btn">Login</a>
         </div>
       </div>
