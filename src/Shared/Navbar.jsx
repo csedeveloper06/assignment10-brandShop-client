@@ -1,21 +1,36 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../components/providers/AuthProvider";
+import profilePic from '../assets/icon.png'
 
 const Navbar = () => {
 
+
+    const { user,logOut } = useContext(AuthContext);
+
+    const handleLogOut = ()=> {
+      logOut()
+        .then()
+        .catch()
+    }
+
+
+
+
     const navLinks = (
     <>
-    <ul className="lg:flex lg:gap-3">
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/addproduct">Add Product</NavLink>
-      </li>
-      <li>
-        <NavLink to="/mycart">My Cart</NavLink>
-      </li>
-    </ul>
-  </>
+      <ul className="lg:flex lg:gap-3">
+        <li>
+          <NavLink to="/">Home</NavLink>
+        </li>
+        <li>
+          <NavLink to="/addproduct">Add Product</NavLink>
+        </li>
+        <li>
+          <NavLink to="/mycart">My Cart</NavLink>
+        </li>
+      </ul>
+    </>
     );
 
   return (
@@ -55,9 +70,29 @@ const Navbar = () => {
            {navLinks}
           </ul>
         </div>
-        <div className="navbar-end">
-          <img className="w-10 h-10 rounded-full pr-[6px]" src="https://i.ibb.co/x3RPF21/icon.png" alt="" />
-          <a className="btn">Login</a>
+        <div className="navbar-end flex">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  {
+                    user ? <img className="w-10 h-10 rounded-full pr-[6px]" src={user.photoURL} alt="" />
+                    : <img className="w-10 h-10 rounded-full pr-[6px]" src= {profilePic} alt="" />
+                  }
+                </div>
+            </label>
+
+            {
+              user ?
+                <>
+                    <span className="text-xs">{user.displayName}</span>
+                    <button onClick={handleLogOut} className="w-16 text-[10px] bg-red-600 p-1  text-base-300 lg:w-24
+                    rounded-xl">Log Out</button>
+                </>
+                  :
+                  <Link to="/login">
+                      <button className="bg-red-600 p-1 w-24 text-base-300 rounded-xl">Login</button>
+                  </Link>
+            }
+
         </div>
       </div>
     </div>
