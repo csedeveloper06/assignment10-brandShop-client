@@ -22,7 +22,7 @@ const Product = ({brandProduct}) => {
                         <button className="btn btn-warning btn-sm">Details</button>
                     </Link>
 
-                    <Link>
+                    <Link to={`/updateproduct/${_id}`}>
                         <button className="btn btn-success btn-sm">Update</button>
                     </Link>   
                 </div>

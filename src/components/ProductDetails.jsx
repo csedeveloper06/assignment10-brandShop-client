@@ -10,10 +10,10 @@ const ProductDetails = () => {
     const {photo,name,brand,price,description,type} = product;
 
     return (
-       <div className="my-16 border-1">
-            <h1 className="text-5xl text-red-600 text-center font-bold my-5">Product Details!</h1>
+       <div className="my-16 border-1 px-2">
+            <h1 className="text-4xl text-red-600 text-center font-bold my-5">Product Details!</h1>
             <div className="card card-side bg-[#fffff4] shadow-xl">
-                <figure><img src={photo} alt="Movie"/></figure>
+                <figure className="w-1/2"><img className="w-full lg:w-96 " src={photo} alt="Food"/></figure>
                 <div className="card-body">
                     <h2 className="card-title">Product Name: {name}</h2>
                     <p>Brand Name: {brand}</p>
