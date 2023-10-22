@@ -2,7 +2,7 @@ const TopRated = () => {
   return (
     <div>
       <h1 className="text-5xl text-center p-8 text-red-600 font-bold">Top Rated Products</h1>
-      <div className="grid grid-cols-1 ml-16 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-10">
+      <div className="grid grid-cols-1 ml-20 md:grid-cols-2 lg:grid-cols-4 lg:ml-0 gap-3 mb-10">
         <div className="card card-compact w-[280px] bg-base-100 shadow-xl">
           <figure>
             <img

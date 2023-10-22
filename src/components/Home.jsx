@@ -24,12 +24,12 @@ const Home = () => {
             {/* <Brand></Brand> */}
             
             <div>
-                <h2 className="text-5xl text-red-600 font-extrabold text-center py-8">Featured Products</h2>
+                <h2 className="text-5xl text-red-600 font-extrabold text-center py-8">Featured Brands</h2>
                 <div className="grid grid-cols-1 ml-16 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
                     {
-                        brands.map(brand => <Brand
-                            key={brand._id}
-                            brand={brand}
+                        brands.map(item => <Brand
+                            key={item._id}
+                            item={item}
                             >
                         </Brand>)
                     }

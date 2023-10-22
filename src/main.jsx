@@ -11,6 +11,7 @@ import Login from "./components/Login.jsx";
 import Register from "./components/Register";
 import AuthProvider from "./components/providers/AuthProvider";
 import Brand from "./components/Brand";
+import BrandDetails from "./components/BrandDetails";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
       {
         path: "/brand",
         element: <Brand></Brand>
+      },
+      {
+        path: "/branddetails/:brand",
+        element: <BrandDetails></BrandDetails>,
+        loader: ()=> fetch('http://localhost:5000/products')
       },
     ],
   },
