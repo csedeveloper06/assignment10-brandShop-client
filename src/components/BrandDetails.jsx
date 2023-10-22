@@ -1,8 +1,9 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import Product from "./Product";
 
 
 
-const BrandDetails = () => {
+const BrandDetails = ({brandProduct}) => {
 
     const allProducts = useLoaderData();
 
@@ -21,11 +22,12 @@ const BrandDetails = () => {
 
             {/* Featured Products */}
             <div>
-                <>
-                    <h1 className="text-4xl">Total Products : {allProducts.length}</h1>
-                    <h2 className="text-4xl">{brand}</h2>
-                     <h1 className="text-4xl">Brand Products : {brandProducts.length}</h1>
-                </>
+                {
+                    brandProducts.map(brandProduct => <Product
+                        key={brandProduct._id}
+                        brandProduct = {brandProduct}
+                    ></Product>)
+                }
             </div>
 
         </div>
