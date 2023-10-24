@@ -44,8 +44,24 @@ const Register = () => {
 
         //create user
         createUser(email,password)
-            .then(result =>{
+            .then(result => {
                 console.log(result.user)
+                // new user has been created
+
+                const createdAt = result.user?.metadata?.creationTime
+                const user = {email, createdAt: createdAt};
+                fetch('http://localhost:5000/user', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+              
                 setRegisterSuccess('user created successfully!')
 
                 updateProfile(result.user, {

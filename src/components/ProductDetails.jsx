@@ -1,4 +1,6 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { data } from "autoprefixer";
+import { Link, useLoaderData, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const ProductDetails = () => {
@@ -8,6 +10,36 @@ const ProductDetails = () => {
     const {_id} = useParams();
     const product = products.find(product => product._id === _id);
     const {photo,name,brand,price,description,type} = product;
+    
+
+    const handleAddToCart = ( event => {
+        event.preventDefault();
+        const newCartProduct =  {photo,name,brand,price,description,type};
+        console.log(newCartProduct);
+
+        // send data to the server
+        fetch('http://localhost:5000/carts', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newCartProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data.insertedId){
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'product added successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                      })
+                }
+            })
+
+
+    })
 
     return (
        <div className="my-16 border-1 px-2">
@@ -21,7 +53,9 @@ const ProductDetails = () => {
                     <p>Product Type: {type}</p>
                     <p>Product Description: {description}</p>
                     <div className="card-actions justify-start">
-                        <button className="btn btn-warning">Add To Cart</button>
+                        <Link to={'/mycart'}>
+                            <button onClick={handleAddToCart} className="btn btn-warning">Add To Cart</button>
+                        </Link>
                     </div>
                 </div>
            </div>
