@@ -1,15 +1,18 @@
 import { useLoaderData } from "react-router-dom";
+import Cart from "./Cart";
 
 
-const MyCart = () => {
+const MyCart = ({cart}) => {
 
     const carts = useLoaderData();
-
-   
-
     return (
         <div>
-            <h2>Product Name: {carts.name}</h2>
+            {
+                carts.map(cart => <Cart
+                key={cart._id}
+                cart ={cart}
+                ></Cart>)
+            }
         </div>
     );
 };
